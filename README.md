@@ -12,6 +12,8 @@ Currently CounterSaga calls the HubContext which updates the client with the upd
 To dos:
 
 -Automate update publishes to fire on every saga data property changes, instead of having to call it manually every time the data changes
+
 -Create front-end library to be loaded via npm to automate subscribe/listener calls
--Figure out best way to expire a saga
+
+-Figure out best way to expire this sort of saga
 
