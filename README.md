@@ -8,7 +8,10 @@ I'm utilizing SignalR to update the clients and NServiceBus Sagas to maintain st
 
 Currently CounterSaga calls the HubContext which updates the client with the updated saga data. 
 
+
 To dos:
+
 -Automate update publishes to fire on every saga data property changes, instead of having to call it manually every time the data changes
+
 -Create front-end library to be loaded via npm to automate subscribe/listener calls
 
