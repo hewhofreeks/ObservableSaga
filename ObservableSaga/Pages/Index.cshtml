@@ -1,0 +1,17 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Counter:</h1>
+        <input id="count" disabled />
+        <button id="add">Add One</button>
+        <button id="subtract">Subtract One</button>
+    </div>
+
+<script src="~/js/jquery/dist/jquery.js"></script>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/clickListeners.js"></script>
+<script src="~/js/counter.js"></script>

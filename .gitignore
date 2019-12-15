@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs/ObservableSaga
+/ObservableSaga/bin/Debug/netcoreapp2.2
+/ObservableSaga/obj
+/ObservableSaga/ObserableSaga/.vs
+/.learningtransport/TestObservableSaga
