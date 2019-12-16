@@ -14,7 +14,7 @@ Currently CounterSaga calls the HubContext which updates the client with the upd
 
 To dos:
 
--Automate update publishes to fire on every saga data property changes, instead of having to call it manually every time the data changes
+-Abstract out signalr hub calls so we know what kind of hub to grab from the container for each different kind of saga. Maybe make some kind of factory that helps to determine that? 
 
 -Create front-end library to be loaded via npm to automate subscribe/listener calls
 
