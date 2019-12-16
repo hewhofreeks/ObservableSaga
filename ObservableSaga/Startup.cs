@@ -40,6 +40,8 @@ namespace ObservableSaga
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             var endpointConfig = new EndpointConfiguration("TestObservableSaga");
+
+            
             var persistence = endpointConfig.UsePersistence<InMemoryPersistence>();
             
             //var settings = persistence.SagaSettings();

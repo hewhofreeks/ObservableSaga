@@ -21,7 +21,12 @@ namespace ObservableSaga.Hubs
         public async Task SubscribeToCounter(string counterID)
         {
             await _messageSession.SendLocal(new SubscribeToCounter { CounterID = counterID, ConnectionID = this.Context.ConnectionId });
+        }
 
+        public override Task OnDisconnectedAsync(Exception exception)
+        {
+            
+            return base.OnDisconnectedAsync(exception);
         }
     }
 

@@ -26,28 +26,17 @@ namespace ObservableSaga.Sagas
         public async Task Handle(SubscribeToCounter message, IMessageHandlerContext context)
         {
             await _counterHub.Groups.AddToGroupAsync(message.ConnectionID, message.CounterID);
-
-            await UpdateListeners();
         }
 
         public async Task Handle(AddToCounter message, IMessageHandlerContext context)
         {
             this.Data.Count++;
-
-            await UpdateListeners();
         }
 
 
         public async Task Handle(SubtractFromCounter message, IMessageHandlerContext context)
         {
             this.Data.Count--;
-
-            await UpdateListeners();
-        }
-
-        protected async Task UpdateListeners()
-        {
-            await _counterHub.Clients.Group(this.Data.CounterID).Update(this.Data);
         }
 
         protected override void ConfigureHowToFindSaga(SagaPropertyMapper<CounterSagaData> mapper)
