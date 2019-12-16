@@ -14,14 +14,17 @@ namespace ObservableSaga.Sagas
     public class CounterSaga : Saga<CounterSagaData>,
         IAmStartedByMessages<SubscribeToCounter>,
         IHandleMessages<AddToCounter>,
-        IHandleMessages<SubtractFromCounter>
+        IHandleMessages<SubtractFromCounter>,
+        IAmObservable
     {
         private IHubContext<CounterHub, ICounterHub> _counterHub;
 
-        public CounterSaga(IHubContext<CounterHub,ICounterHub> counterHub)
+        public CounterSaga(IHubContext<CounterHub, ICounterHub> counterHub)
         {
             _counterHub = counterHub;
         }
+
+       
 
         public async Task Handle(SubscribeToCounter message, IMessageHandlerContext context)
         {
@@ -37,6 +40,11 @@ namespace ObservableSaga.Sagas
         public async Task Handle(SubtractFromCounter message, IMessageHandlerContext context)
         {
             this.Data.Count--;
+        }
+
+        public async Task UpdateClients()
+        {
+            await this._counterHub.Clients.Group(this.Data.CounterID).Update(this.Data);
         }
 
         protected override void ConfigureHowToFindSaga(SagaPropertyMapper<CounterSagaData> mapper)

@@ -1,5 +1,8 @@
-﻿using NServiceBus;
+﻿using Microsoft.AspNetCore.SignalR;
+using NServiceBus;
 using NServiceBus.Features;
+using NServiceBus.ObjectBuilder;
+using ObservableSaga.Hubs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +21,12 @@ namespace ObservableSaga.NServiceBusConfig.Features
         protected override void Setup(FeatureConfigurationContext context)
         {
             var pipeline = context.Pipeline;
+            
             pipeline.Register(
                 stepId: "NotifySagaSubscribers",
                 behavior: typeof(SignalRUpdateBehavior),
                 description: "Logs handler time");
         }
     }
+
 }
