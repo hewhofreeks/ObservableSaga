@@ -4,11 +4,18 @@
     ViewData["Title"] = "Home page";
 }
 
-    <div class="text-center">
-        <h1 class="display-4">Counter:</h1>
-        <input id="count" disabled />
-        <button id="add">Add One</button>
-        <button id="subtract">Subtract One</button>
+    <div class="text-center" data-counter-id="counter-1">
+        <h1 class="display-4">Counter (counter-1):</h1>
+        <input class="count" disabled />
+        <button class="add">Add One</button>
+        <button class="subtract">Subtract One</button>
+    </div>
+
+    <div class="text-center" data-counter-id="counter-2">
+        <h1 class="display-4">Counter (counter-2):</h1>
+        <input class="count" disabled />
+        <button class="add">Add One</button>
+        <button class="subtract">Subtract One</button>
     </div>
 
 <script src="~/js/jquery/dist/jquery.js"></script>

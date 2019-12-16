@@ -5,11 +5,15 @@
 
 
 $(document).ready(($) => {
-    $('#add').on('click', (e) => {
-        $.post('/Counter/Add?counterID=new-id');
+    $('.add').on('click', (e) => {
+
+        var id = $(e.target).parent('[data-counter-id]').attr('data-counter-id');
+        $.post('/Counter/Add?counterID=' + id);
     });
 
-    $('#subtract').on('click', (e) => {
-        $.post('/Counter/Subtract?counterID=new-id');
+    $('.subtract').on('click', (e) => {
+        var id = $(e.target).parent('[data-counter-id]').attr('data-counter-id');
+
+        $.post('/Counter/Subtract?counterID=' + id);
     });
 });
